@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :employees
   get 'home/index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
+  #ActiveAdmin.routes(self), controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -60,15 +60,15 @@ Rails.application.routes.draw do
   #   end
   
   #->Prelang (user_login:devise/stylized_paths)
-  devise_scope :user do
-    get    "login"   => "users/sessions#new",         as: :new_user_session
-    post   "login"   => "users/sessions#create",      as: :user_session
-    delete "signout" => "users/sessions#destroy",     as: :destroy_user_session
-    
-    get    "signup"  => "users/registrations#new",    as: :new_user_registration
-    post   "signup"  => "users/registrations#create", as: :user_registration
-    put    "signup"  => "users/registrations#update", as: :update_user_registration
-    get    "account" => "users/registrations#edit",   as: :edit_user_registration
-  end
+#  devise_scope :employee do
+#    get    "login"   => "employees/sessions#new",         as: :new_employee_session
+#    post   "login"   => "employees/sessions#create",      as: :employee_session
+#    delete "signout" => "employees/sessions#destroy",     as: :destroy_employee_session
+#    
+#    get    "signup"  => "employees/registrations#new",    as: :new_employee_registration
+#    post   "signup"  => "employees/registrations#create", as: :employee_registration
+#    put    "signup"  => "employees/registrations#update", as: :update_employee_registration
+#    get    "account" => "employees/registrations#edit",   as: :edit_employee_registration
+#  end
 
 end

@@ -2,13 +2,13 @@
   <h1><%=t ".title", default: "Login" %></h1>
 </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal form-user"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal form-employee"}) do |f| %>
                                                                                                                                         
   
   <div class="form-group">
-    <%= f.label :login, "Username or Email", class: "control-label col-md-4" %>
+    <%= f.label :email, "Email", class: "control-label col-md-4" %>
     <div class="col-md-8">
-      <%= f.text_field :login, class: "text-field form-control", html: {spellcheck: "false"} %>
+      <%= f.text_field :email, class: "text-field form-control", html: {spellcheck: "false"} %>
     </div>
   </div>
   

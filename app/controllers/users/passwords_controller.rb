@@ -1,4 +1,4 @@
-class Users::PasswordsController < Devise::PasswordsController
+class Employees::PasswordsController < Devise::PasswordsController
   include ApplicationHelper
 
   def new
