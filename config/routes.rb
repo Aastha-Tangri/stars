@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  resources :points, :only => [:index, :create, :new]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -60,15 +60,15 @@ Rails.application.routes.draw do
   #   end
   
   #->Prelang (user_login:devise/stylized_paths)
-#  devise_scope :employee do
-#    get    "login"   => "employees/sessions#new",         as: :new_employee_session
-#    post   "login"   => "employees/sessions#create",      as: :employee_session
-#    delete "signout" => "employees/sessions#destroy",     as: :destroy_employee_session
-#    
-#    get    "signup"  => "employees/registrations#new",    as: :new_employee_registration
-#    post   "signup"  => "employees/registrations#create", as: :employee_registration
-#    put    "signup"  => "employees/registrations#update", as: :update_employee_registration
-#    get    "account" => "employees/registrations#edit",   as: :edit_employee_registration
-#  end
+  #  devise_scope :employee do
+  #    get    "login"   => "employees/sessions#new",         as: :new_employee_session
+  #    post   "login"   => "employees/sessions#create",      as: :employee_session
+  #    delete "signout" => "employees/sessions#destroy",     as: :destroy_employee_session
+  #    
+  #    get    "signup"  => "employees/registrations#new",    as: :new_employee_registration
+  #    post   "signup"  => "employees/registrations#create", as: :employee_registration
+  #    put    "signup"  => "employees/registrations#update", as: :update_employee_registration
+  #    get    "account" => "employees/registrations#edit",   as: :edit_employee_registration
+  #  end
 
 end
