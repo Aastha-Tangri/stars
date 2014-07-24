@@ -14,10 +14,8 @@ class PointsController < ApplicationController
   end
   
   def create
-    debugger
-    given_by = current_employee.id
-    category_id = params[:points][:category_id].to_i
     @points = Points.new(points_params)
+    @points.given_by = current_employee.ecode
     respond_to do |format|
       if @points.save
         format.html { redirect_to points_path, notice: 'Appreciation was successfully done.' }
