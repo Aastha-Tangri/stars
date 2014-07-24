@@ -1,51 +1,50 @@
-<%= form_for(:points, html: {class: "form-horizontal form-points"}) do |f| %>
+<%= form_for(@points, url: {action: "create"}, html: {class: "form-horizontal form-points"}) do |point| %>
+
     <div class="form-group">
-      <%= f.label :given_to, class: "control-label col-md-4" %>
+      <%= point.label :given_to, class: "control-label col-md-4" %>
         <div class="col-md-4">
-      <%#= f.collection_select(:given_to, Employee.all, include_blank: "Select...") %>
+          <%= point.collection_select(:given_to, Employee.all, :id, :ecode, include_blank: "Select...") %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :category, class: "control-label col-md-4" %>
+        <%= point.label :category_id, class: "control-label col-md-4" %>
           <div class="col-md-4">
-        <%#= f.collection_select(:category, Category.all, :id, :name, include_blank: "Select..." %>
+            <%= point.collection_select(:category_id, Category.all, :id, :name, include_blank: "Select...") %>
           </div>
         </div>
 
-
-
         <div class="form-group">
-          <%= f.label :project, class: "control-label col-md-4" %>
+          <%= point.label :project, class: "control-label col-md-4" %>
             <div class="col-md-4">
-              <%= f.text_field :project, class: "text-field form-control" %>
+              <%= point.text_field :project, class: "text-field form-control" %>
               </div>
             </div>
 
             <div class="form-group">
-              <%= f.label :task, class: "control-label col-md-4" %>
+              <%= point.label :task, class: "control-label col-md-4" %>
                 <div class="col-md-4">
-                  <%= f.text_field :task, class: "text-field form-control" %>
+                  <%= point.text_field :task, class: "text-field form-control" %>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <%= f.label :comment, class: "control-label col-md-4" %>
+                  <%= point.label :comment, class: "control-label col-md-4" %>
                     <div class="col-md-4">
-                      <%= f.text_area :comment, class: "text-area form-control" %>
+                      <%= point.text_area :comment, class: "text-area form-control" %>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <%= f.label :manager, class: "control-label col-md-4" %>
+                      <%= point.label :manager, class: "control-label col-md-4" %>
                         <div class="col-md-4">
-                          <%= f.text_field :manager, class: "text-field form-control" %>
+                          <%= point.text_field :manager, class: "text-field form-control" %>
                           </div>
                         </div>
 
                         <div class="form-group">
                           <div class="col-md-offset-4 col-md-8">
-                            <%= f.submit "Appreciate", class: "btn btn-primary" %>
+                            <%= point.submit "Appreciate", class: "btn btn-primary" %>
                             </div>
                           </div>
 

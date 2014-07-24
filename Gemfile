@@ -43,6 +43,7 @@ gem 'bundler'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
 group :test do
