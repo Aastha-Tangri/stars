@@ -3,7 +3,7 @@
     <div class="form-group">
       <%= point.label :given_to, class: "control-label col-md-4" %>
         <div class="col-md-4">
-          <%= point.collection_select(:given_to, Employee.all, :id, :ecode, include_blank: "Select...") %>
+          <%= point.collection_select(:given_to, @employees, :id, :ecode, include_blank: "Select...") %>
         </div>
       </div>
 

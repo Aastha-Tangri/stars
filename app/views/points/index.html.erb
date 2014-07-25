@@ -1,1 +1,26 @@
+<% if @points.present? %>
+  <table style="border-spacing: 10px;">
+    <tr>
+      <th>Given To</th>
+      <th>Project</th>
+      <th>Category</th>
+      <th>Task</th>
+      <th>Comment</th>
+      <th>Manager</th>
+    </tr>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= point.given_to %></td>
+        <td><%= point.project %></td>
+        <td><%= point.category_id %></td>
+        <td><%= point.task %></td>
+        <td><%= point.comment %></td>
+        <td><%= point.manager %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <label>Nothing to display</label>
+<% end %>
 <%= link_to "Appreciate", new_point_path %>

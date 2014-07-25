@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Employees::RegistrationsController < Devise::RegistrationsController
   include ApplicationHelper
 
   def create
