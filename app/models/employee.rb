@@ -3,6 +3,6 @@ class Employee < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :points
+  has_and_belongs_to_many :points
   belongs_to :manager, class_name: "Employee"
 end

@@ -12,7 +12,9 @@
       <tr>
         <td><%= point.given_to %></td>
         <td><%= point.project %></td>
-        <td><%= point.category_id %></td>
+        <% category = Category.find(point.category_id) %>
+        <% category_name = category.name %>
+        <td><%= category_name %></td>
         <td><%= point.task %></td>
         <td><%= point.comment %></td>
         <td><%= point.manager %></td>

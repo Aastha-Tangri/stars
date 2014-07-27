@@ -1,4 +1,4 @@
 class Points < ActiveRecord::Base
-  belongs_to :employee#, -> { where given_by: current_employee.ecode }
+  belongs_to :employee
   has_one :category
 end
