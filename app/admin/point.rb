@@ -1,4 +1,4 @@
-ActiveAdmin.register Points do
+ActiveAdmin.register Point do
 
   
   # See permitted parameters documentation:

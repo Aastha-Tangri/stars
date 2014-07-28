@@ -1,4 +1,4 @@
-class CreatePoints < ActiveRecord::Migration
+class CreatePoint < ActiveRecord::Migration
   def change
     create_table :points do |t|
       t.string :given_to

@@ -1,4 +1,4 @@
-class Points < ActiveRecord::Base
+class Point < ActiveRecord::Base
   belongs_to :employee
   has_one :category
 end
