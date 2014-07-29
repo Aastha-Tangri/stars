@@ -2,7 +2,7 @@ class PointsController < ApplicationController
   before_filter :authenticate_employee!
   
   def index
-    @points = Point.where("given_by = ?", current_employee.ecode)
+    @points = current_employee.points
     respond_to do |format|
       format.html
       format.json { render json: @points }
@@ -10,13 +10,12 @@ class PointsController < ApplicationController
   end
   
   def new
-    @points = Point.new
+    @points = current_employee.points.build
     @employees = Employee.where("ecode != ?", current_employee.ecode)
   end
   
   def create
-    @points = Point.new(points_params)
-    @points.given_by = current_employee.ecode
+    @points = current_employee.points.create!(points_params)
     respond_to do |format|
       if @points.save
         format.html { redirect_to points_path, notice: 'Appreciation was successfully done.' }
@@ -29,11 +28,11 @@ class PointsController < ApplicationController
   end
   
   def edit
-    @points = Point.find(params[:id])
+    @points = current_employee.points.find(params[:id])
   end
   
   private
   def points_params
-    params.require(:points).permit(:given_to, :given_by, :category_id, :project, :task, :comment, :manager)
+    params.require(:point).permit(:given_to, :category_id, :project, :task, :comment, :manager)
   end
 end
