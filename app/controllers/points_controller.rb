@@ -11,7 +11,7 @@ class PointsController < ApplicationController
   
   def new
     @points = current_employee.points_given.build
-    @employees = Employee.where("ecode != ?", current_employee.ecode)
+    @employees = Employee.where("id != ?", current_employee.id)
   end
   
   def create
