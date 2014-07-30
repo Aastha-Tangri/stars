@@ -2,7 +2,7 @@ class PointsController < ApplicationController
   before_filter :authenticate_employee!
   
   def index
-    @points = current_employee.points
+    @points = current_employee.points_given
     respond_to do |format|
       format.html
       format.json { render json: @points }
@@ -10,16 +10,16 @@ class PointsController < ApplicationController
   end
   
   def new
-    @points = current_employee.points.build
+    @points = current_employee.points_given.build
     @employees = Employee.where("ecode != ?", current_employee.ecode)
   end
   
   def create
-    @points = current_employee.points.create!(points_params)
+    @points = current_employee.points_given.new(points_params)
     respond_to do |format|
       if @points.save
-        format.html { redirect_to points_path, notice: 'Appreciation was successfully done.' }
-        format.json { render json: points_path, status: :created, location: @points }
+        format.html { redirect_to employee_points_path, notice: 'Appreciation was successfully done.' }
+        format.json { render json: employee_points_path, status: :created, location: @points }
       else
         format.html { render action: "new" }
         format.json { render json: @points.errors, status: :unprocessable_entity }
@@ -28,7 +28,7 @@ class PointsController < ApplicationController
   end
   
   def edit
-    @points = current_employee.points.find(params[:id])
+    @points = current_employee.points_given.find(params[:id])
   end
   
   private

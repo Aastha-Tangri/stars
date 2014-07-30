@@ -1,7 +1,7 @@
 <% if @points.present? %>
   <table>
     <tr>
-      <th>Given To</th>
+      <th>Given By</th>
       <th>Project</th>
       <th>Category</th>
       <th>Task</th>
@@ -10,7 +10,7 @@
     </tr>
     <% @points.each do |point| %>
       <tr>
-        <td><%= point.given_to %></td>
+        <td><%= point.given_by %></td>
         <td><%= point.project %></td>
         <% category = Category.find(point.category_id) %>
         <% category_name = category.name %>
@@ -25,4 +25,3 @@
 <% else %>
   <label>Nothing to display</label>
 <% end %>
-<%= link_to "Appreciate", new_employee_point_path %>
