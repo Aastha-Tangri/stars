@@ -4,6 +4,7 @@
       <th>Given To</th>
       <th>Project</th>
       <th>Category</th>
+      <th>Stars</th>
       <th>Task</th>
       <th>Comment</th>
       <th>Manager</th>
@@ -15,6 +16,7 @@
         <% category = Category.find(point.category_id) %>
         <% category_name = category.name %>
         <td><%= category_name %></td>
+        <td><%= category.stars %></td>
         <td><%= point.task %></td>
         <td><%= point.comment %></td>
         <td><%= point.manager %></td>
@@ -25,4 +27,4 @@
 <% else %>
   <label>Nothing to display</label>
 <% end %>
-<%= link_to "Appreciate", new_employee_point_path %>
+<%= link_to "Give Points", new_employee_point_path %>
