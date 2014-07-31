@@ -2,6 +2,7 @@
   <table>
     <tr>
       <th>Given To</th>
+      <th>Name</th>
       <th>Project</th>
       <th>Category</th>
       <th>Stars</th>
@@ -12,6 +13,7 @@
     <% @points.each do |point| %>
       <tr>
         <td><%= point.employee.ecode %></td>
+        <td><%= point.employee.name %></td>
         <td><%= point.project %></td>
         <td><%= point.category.name %></td>
         <td><%= point.category.stars %></td>
