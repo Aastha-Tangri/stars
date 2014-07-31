@@ -11,12 +11,10 @@
     </tr>
     <% @points.each do |point| %>
       <tr>
-        <td><%= point.given_by %></td>
+        <td><%= point.employee.ecode %></td>
         <td><%= point.project %></td>
-        <% category = Category.find(point.category_id) %>
-        <% category_name = category.name %>
-        <td><%= category_name %></td>
-        <td><%= category.stars %></td>
+        <td><%= point.category.name %></td>
+        <td><%= point.category.stars %></td>
         <td><%= point.task %></td>
         <td><%= point.comment %></td>
         <td><%= point.manager %></td>
@@ -26,4 +24,4 @@
 <% else %>
   <label>No points yet!</label>
 <% end %>
-<%= link_to "Show My Points", employee_points_path(current_employee.id) %>
+<%= link_to "List Given Points", employee_points_path(current_employee.id) %>
