@@ -18,9 +18,7 @@ class PointsController < ApplicationController
     @points = current_employee.points_given.new(points_params)
     respond_to do |format|
       if @points.save
-        appre_emp = Employee.find(@points.given_to)
-        message = {:points => @points.category.stars, :given_by => current_employee.name, :project => points_params[:project]}
-        EmployeeMailer.received_points(appre_emp.name, appre_emp.email, "Congratulations. You received an appreciation.", message).deliver
+        PointsWorker.perform_async(@points.id, current_employee.name, points_params[:project])
         format.html { redirect_to employee_points_path, notice: 'Appreciation was successfully done.' }
         format.json { render json: employee_points_path, status: :created, location: @points }
       else

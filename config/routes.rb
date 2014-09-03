@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   get 'employees/index'
 
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   resources :employees, only: :index do
     resources :points, :only => [:index, :create, :new]
   end
+
+  mount Sidekiq::Web, at: '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

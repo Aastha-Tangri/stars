@@ -5,6 +5,8 @@ class Employee < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :points_given, class_name: "Point", dependent: :destroy, :foreign_key => 'given_by'
   has_many :points, dependent: :destroy, :foreign_key => 'given_to'
+  has_many :subordinates, class_name: "Employee",
+                          foreign_key: "manager_id"
   belongs_to :manager, class_name: "Employee"
   validates :ecode,:email, :uniqueness => true, :presence => true
 end
